@@ -48,5 +48,14 @@ public class InsertionSort {
 		int i = 0;
 		int j = 0;
 		int key = 0;
+		
+		for (j = 1; j < list.size(); j++) {
+			key = list.get(j);
+			i = j - 1;
+			for ( ; i >= 0 && list.get(i) > key ; i--) {
+				list.set(i+1, list.get(i));
+			}
+			list.set(i+1, key);
+		}
 	}
 }
