@@ -26,7 +26,7 @@ public class InsertSort {
 			}
 			
 			long start = System.nanoTime();
-			insertionSort(list);
+			insertSort(list);
 			long end = System.nanoTime();
 			long term = end - start;
 			
@@ -50,7 +50,7 @@ public class InsertSort {
 		}
 	}
 	
-	public static void insertionSort(ArrayList<Integer> list) {
+	public static void insertSort(ArrayList<Integer> list) {
 		int i = 0;
 		int j = 0;
 		int key = 0;
