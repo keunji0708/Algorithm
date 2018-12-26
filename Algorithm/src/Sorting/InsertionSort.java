@@ -30,8 +30,14 @@ public class InsertionSort {
 			long end = System.nanoTime();
 			long term = end - start;
 			
+			int count = 0;
 			for (int i = 0; i < list.size(); i++) {
-				System.out.print(list.get(i) + ",");
+				System.out.printf("%6d,", list.get(i));
+				count++;
+				if (count == 10) {
+					System.out.println();
+					count = 0;
+				}
 			}
 			
 			System.out.println("Inserting time : " + term/1000000.0);
