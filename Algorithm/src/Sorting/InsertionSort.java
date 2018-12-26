@@ -14,7 +14,6 @@ public class InsertionSort {
 		
 		try {
 			BufferedReader br = new BufferedReader(new FileReader("data02.txt"));
-			BufferedWriter bw = new BufferedWriter(new FileWriter("hw01_InsertionSort"));
 			String line = br.readLine();
 			
 			while(line != null) {
@@ -27,16 +26,27 @@ public class InsertionSort {
 			}
 			
 			long start = System.nanoTime();
-			//Insertion_Sort(list);
+			insertionSort(list);
 			long end = System.nanoTime();
 			long term = end - start;
 			
+			for (int i = 0; i < list.size(); i++) {
+				System.out.print(list.get(i) + ",");
+			}
+			
 			System.out.println("Inserting time : " + term/1000000.0);
 			
+			br.close();
 			
 		}catch(IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	public static void insertionSort(ArrayList<Integer> list) {
+		int i = 0;
+		int j = 0;
+		int key = 0;
 	}
 }
