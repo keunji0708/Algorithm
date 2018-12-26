@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-public class InsertionSort {
+public class InsertSort {
 	public static void main(String args[]) throws IOException{
 		ArrayList<Integer> list = new ArrayList<Integer>();
 		
