@@ -23,10 +23,10 @@ public class MergeSort {
 				line = br.readLine();
 			}
 			
-			long start = System.nanoTime();
-			//mergeSort(list);
-			long end = System.nanoTime();
-			long term = end - start;
+		//	long start = System.nanoTime();
+		//	mergeSort(list);
+		//	long end = System.nanoTime();
+		//	long term = end - start;
 			
 			int count = 0;
 			for (int i = 0; i < list.size(); i++) {
@@ -38,7 +38,7 @@ public class MergeSort {
 				}
 			}
 			
-			System.out.println("Merge time : " + term/1000000.0);
+		//	System.out.println("Merge time : " + term/1000000.0);
 			
 			br.close();
 			
