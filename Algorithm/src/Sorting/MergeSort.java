@@ -24,7 +24,7 @@ public class MergeSort {
 			}
 
 			long start = System.nanoTime();
-			// mergeSort(list);
+			mergeSort(list);
 			long end = System.nanoTime();
 			long term = end - start;
 
@@ -64,7 +64,6 @@ public class MergeSort {
 					right.add(list.get(i));
 				}
 			}
-
 			mergeSort(left);
 			mergeSort(right);
 
@@ -75,17 +74,28 @@ public class MergeSort {
 	}
 
 	public static void merge(ArrayList<Integer> list, ArrayList<Integer> left, ArrayList<Integer> right) {
-
 		int i = 0;
-		while (left.size() > 0 && right.size() > 0) {
-			if ((left.get(0)).compareTo(right.get(0)) < 0) { // 왼쪽, 오른쪽 리스트 각각의 처음값을 비교
-				list.set(i, left.get(0)); // 왼쪽이 작은 경우, 왼쪽 값을 합병 리스트에 넣는다.
-				left.remove(0); // 비교가 끝나 필요가 없으므로, 제거한다
-			} else {
-				list.set(i, right.get(0)); // 오른쪽이 작은 경우, 오른쪽 값을 합병 리스트에 넣는다.
-				right.remove(0); // 비교가 끝나 필요가 없으므로, 제거한다
+
+		while (left.size() > 0 || right.size() > 0) {
+			while (left.size() > 0 && right.size() > 0) {
+				if ((left.get(0)).compareTo(right.get(0)) < 0) {
+					list.set(i, left.get(0)); 
+					left.remove(0);
+				} else {
+					list.set(i, right.get(0)); 
+					right.remove(0); 
+				}
+				i = i + 1;
 			}
-			i = i + 1;
+			if (right.size() == 0) { 
+				list.set(i, left.get(0)); 
+				left.remove(0);
+				i++;
+			} else if (left.size() == 0) { 
+				list.set(i, right.get(0)); 
+				right.remove(0);
+				i++;
+			}
 		}
 	}
 }
