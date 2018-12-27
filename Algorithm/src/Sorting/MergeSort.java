@@ -47,5 +47,47 @@ public class MergeSort {
 			e.printStackTrace();
 		}
 	}
+	
+	public static ArrayList<Integer> mergeSort(ArrayList<Integer> list){
+		ArrayList<Integer> left = new ArrayList<Integer>();
+		ArrayList<Integer> right = new ArrayList<Integer>();
+		
+		if (list.size() == 1) {
+			return list;
+		}
+		else {
+			int mid = list.size() / 2;
+			
+			for(int i = 0; i < list.size(); i++) {
+				if (i < mid) {
+					left.add(list.get(i));
+				}
+				else {
+					right.add(list.get(i));
+				}
+			}
+			
+			mergeSort(left);
+			mergeSort(right);
+			
+			merge(list, left, right);
+		}	
+		
+		return list;		
+	}
 
+	public static void merge(ArrayList<Integer> list,
+			ArrayList<Integer> left, ArrayList<Integer> right) {
+		
+		int i = 0;
+		
+		if ((left.get(0)).compareTo(right.get(0)) < 0) { // 왼쪽, 오른쪽 리스트 각각의 처음값을 비교
+			list.set(i, left.get(0)); // 왼쪽이 작은 경우, 왼쪽 값을 합병 리스트에 넣는다.
+			left.remove(0); // 비교가 끝나 필요가 없으므로, 제거한다
+		} else {
+			list.set(i, right.get(0)); // 오른쪽이 작은 경우, 오른쪽 값을 합병 리스트에 넣는다.
+			right.remove(0); // 비교가 끝나 필요가 없으므로, 제거한다
+		}
+		i = i + 1;
+	}
 }
