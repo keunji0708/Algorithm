@@ -29,5 +29,7 @@ public class QuickSort {
 				System.out.print(list.get(i) + ",");
 			}
 		}
+		
+		br.close();
 	}
 }
