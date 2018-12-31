@@ -32,4 +32,16 @@ public class QuickSort {
 		
 		br.close();
 	}
+	
+	public static void quickSort(ArrayList<Integer> list, int p, int r) {
+		if (p < r) {
+			int q = partition(list, p, r);
+			quickSort(list, p, q - 1);
+			quickSort(list, q + 1, r);
+		}
+	}
+	
+	public static int partition(ArrayList<Integer> list, int p, int r) {
+		return 0;
+	}
 }
