@@ -20,7 +20,7 @@ public class QuickSort {
 			}
 			line = br.readLine();
 		}
-		//quickSort();
+		quickSort(list, 0, list.size() - 1);
 		
 		for(int i = 0; i < list.size(); i++) {
 			if (i == list.size() - 1) {
@@ -42,6 +42,21 @@ public class QuickSort {
 	}
 	
 	public static int partition(ArrayList<Integer> list, int p, int r) {
-		return 0;
+		int x = list.get(r);
+		int i = p - 1;
+		for (int j = p; j <= r - 1; j++) {
+			if (list.get(j) <= x) {
+				i = i + 1;
+				int temp = list.get(i); 
+				list.set(i, list.get(j));
+				list.set(j, temp);
+			}
+		}
+		i = i + 1;
+		int temp = list.get(i); 
+		list.set(i, list.get(r));
+		list.set(r, temp);
+		return i; 
+	
 	}
 }
