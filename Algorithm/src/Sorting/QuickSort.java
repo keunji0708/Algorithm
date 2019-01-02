@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.StringTokenizer;
 
 public class QuickSort {
@@ -28,10 +29,10 @@ public class QuickSort {
 		for(int i = 0; i < list.size(); i++) {
 			if (i == list.size() - 1) {
 				System.out.print(list.get(i));
-				System.out.print(list_rand.get(i));
+				//System.out.print(list_rand.get(i));
 			} else {
 				System.out.print(list.get(i) + ",");
-				System.out.print(list_rand.get(i) + ",");
+				//System.out.print(list_rand.get(i) + ",");
 			}
 		}
 		
@@ -49,7 +50,7 @@ public class QuickSort {
 	public static void quickSort_withRandom(ArrayList<Integer> list_r, int p, int r) {
 		if (p < r) {
 			int q = 0;
-			//q = randomizedPartition(A, p, r);
+			q = randomizedPartition(list_r, p, r);
 			quickSort_withRandom(list_r, p, q - 1);
 			quickSort_withRandom(list_r, q + 1, r);
 		}
@@ -72,5 +73,13 @@ public class QuickSort {
 		list.set(r, temp);
 		return i; 
 	
+	}
+	
+	public static int randomizedPartition(ArrayList<Integer> list_r, int p, int r) {
+		int i = new Random().nextInt(r - p + 1) + p;
+		int temp = list_r.get(r); 
+		list_r.set(r, list_r.get(i));
+		list_r.set(i, temp);
+		return partition(list_r, p, r);
 	}
 }
