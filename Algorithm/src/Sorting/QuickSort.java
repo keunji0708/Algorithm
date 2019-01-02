@@ -23,7 +23,7 @@ public class QuickSort {
 			line = br.readLine();
 		}
 		quickSort(list, 0, list.size() - 1);
-		//quickSort_withRandom(list_rand, 0, list_rand.size() - 1);
+		quickSort_withRandom(list_rand, 0, list_rand.size() - 1);
 		
 		for(int i = 0; i < list.size(); i++) {
 			if (i == list.size() - 1) {
@@ -43,6 +43,15 @@ public class QuickSort {
 			int q = partition(list, p, r);
 			quickSort(list, p, q - 1);
 			quickSort(list, q + 1, r);
+		}
+	}
+	
+	public static void quickSort_withRandom(ArrayList<Integer> list_r, int p, int r) {
+		if (p < r) {
+			int q = 0;
+			//q = randomizedPartition(A, p, r);
+			quickSort_withRandom(list_r, p, q - 1);
+			quickSort_withRandom(list_r, q + 1, r);
 		}
 	}
 	
