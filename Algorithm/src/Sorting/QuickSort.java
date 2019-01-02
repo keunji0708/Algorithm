@@ -9,6 +9,7 @@ import java.util.StringTokenizer;
 public class QuickSort {
 	public static void main(String args[]) throws IOException{
 		ArrayList<Integer> list = new ArrayList<Integer>();		
+		ArrayList<Integer> list_rand = new ArrayList<Integer>();
 		BufferedReader br = new BufferedReader(new FileReader("data04.txt"));
 		String line = br.readLine();
 		
@@ -17,16 +18,20 @@ public class QuickSort {
 			while (st.hasMoreTokens()) {
 				int num = Integer.parseInt(st.nextToken());
 				list.add(num);
+				list_rand.add(num);
 			}
 			line = br.readLine();
 		}
 		quickSort(list, 0, list.size() - 1);
+		//quickSort_withRandom(list_rand, 0, list_rand.size() - 1);
 		
 		for(int i = 0; i < list.size(); i++) {
 			if (i == list.size() - 1) {
 				System.out.print(list.get(i));
+				System.out.print(list_rand.get(i));
 			} else {
 				System.out.print(list.get(i) + ",");
+				System.out.print(list_rand.get(i) + ",");
 			}
 		}
 		
